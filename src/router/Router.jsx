@@ -4,6 +4,7 @@ import Login from "../Login/Login";
 import Signup from "../Signup/Signup";
 import Home from "../Home/Home";
 import NewCampine from "../NewCamping/NewCampine";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = createBrowserRouter([
     {
@@ -16,7 +17,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: 'new-campaign',
-                element: <NewCampine></NewCampine>
+                element: <PrivateRoute><NewCampine></NewCampine></PrivateRoute>
             },
             {
                 path: 'login',

@@ -39,7 +39,7 @@ console.log(user);
                         {links}
                     </ul>
                 </div>
-                <Link to={'/'} className="btn btn-ghost text-xl">Crowd-funding-application</Link>
+                <Link to={'/'} className="btn btn-ghost text-xl">Crowd Funding</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
