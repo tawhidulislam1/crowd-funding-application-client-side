@@ -1,5 +1,5 @@
 
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllCampaign = () => {
     const allCamapaign = useLoaderData();
@@ -28,12 +28,12 @@ const AllCampaign = () => {
                                     <td>${campaign.minDonation}</td>
                                     <td>{new Date(campaign.deadline).toLocaleDateString()}</td>
                                     <td>
-                                        {/* <button
+                                      <Link to={`/campaign/${campaign._id}`}>
+                                      <button
                                             className="btn btn-primary btn-sm"
-                                            onClick={() => handleSeeMore(campaign.id)}
                                         >
                                             See More
-                                        </button> */}
+                                        </button></Link>
                                     </td>
                                 </tr>
                             ))}
