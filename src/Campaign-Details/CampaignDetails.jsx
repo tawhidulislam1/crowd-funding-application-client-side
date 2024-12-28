@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CampaignDetails = () => {
     const campains = useLoaderData();
@@ -7,11 +8,30 @@ const CampaignDetails = () => {
         image,
         title,
         type,
-        email,
         description,
         minDonation,
         deadline,
     } = campains;
+    const handleDonation = ()=>{
+        fetch('http://localhost:5000/newDonated' , {
+                    method: "POST",
+                    headers:{
+                        "content-type" : "application/json"
+                    },
+                    body: JSON.stringify(campains)
+                })
+                .then(res =>res.json())
+                .then(data => {
+                    if(data.insertedId){
+                        Swal.fire({
+                            title: "Success!",
+                            text: "Donated Successfully!",
+                            icon: "success"
+                          });
+                    }
+                    console.log(data);
+                })
+    }
     console.log(campains);
     return (
         <div className="flex items-center justify-center min-h-screen">
@@ -42,7 +62,7 @@ const CampaignDetails = () => {
                         </p>
 
                         {/* Donate Button */}
-                        <button className="btn btn-primary mt-6 w-full md:w-auto px-8">
+                        <button onClick={handleDonation}  className="btn btn-primary mt-6 w-full md:w-auto px-8">
                             Donate
                         </button>
                     </div>
