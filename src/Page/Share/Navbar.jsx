@@ -10,8 +10,8 @@ console.log(user);
     // console.log(user);
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='donation'>All Campaign</NavLink></li>
-        <li><NavLink to='new-campaign'>Add New Campaign</NavLink></li>
+        <li><NavLink to='all-campaign'>All Campaign</NavLink></li>
+        <li><NavLink to='addCampaign'>Add New Campaign</NavLink></li>
         <li><NavLink to='dashboard'>My  Campaign</NavLink></li>
         <li><NavLink to='dashboard'>My Donations</NavLink></li>
     </>
