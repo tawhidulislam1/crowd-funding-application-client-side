@@ -10,6 +10,7 @@ import CampaignDetails from "../Campaign-Details/CampaignDetails";
 import Mycampaign from "../MyCampaign/Mycampaign";
 import UpdateCampaign from "../UpdateCampaign/UpdateCampaign";
 import MyDonations from "../myDonations/MyDonations";
+import Error from "../Error/Error";
 
 const Router = createBrowserRouter([
     {
@@ -62,7 +63,7 @@ const Router = createBrowserRouter([
     },
     {
         path: "*",
-        // element: <Error></Error>,
+        element: <Error></Error>,
     },
 ]);
 export default Router;
