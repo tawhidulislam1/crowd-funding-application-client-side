@@ -50,7 +50,7 @@ console.log(user);
                 {
                     user && user?.email ? <>
                         <button onClick={logOut} className="btn">Logout</button>
-                        <NavLink to='/dashboard'> <img src={user?.photoURL} alt="" className="rounded-full w-14 ml-2" /></NavLink>
+                       <img src={user?.photoURL} title={user?.displayName} alt="" className="rounded-full w-14 ml-2" />
 
 
                     </> : <NavLink to='/login' className="btn">Login</NavLink>

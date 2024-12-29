@@ -18,6 +18,7 @@ const RunningCampaign = ({ Campaign }) => {
                         <img
                             src={campaign.image}
                             alt={campaign.title}
+                            title="asdflasdf"
                             className="w-full h-48 object-cover rounded-md"
                         />
                         <h2 className="text-xl font-semibold mb-2">{campaign.title}</h2>
