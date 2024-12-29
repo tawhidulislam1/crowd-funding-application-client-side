@@ -73,7 +73,7 @@ const Mycampaign = () => {
                                         >
                                             Delete
                                         </button>
-                                        <Link to
+                                        <Link  to={`/updateCampaign/${campaign._id}`}
                                             className="btn btn-primary btn-sm"
                                         >
                                             Update
