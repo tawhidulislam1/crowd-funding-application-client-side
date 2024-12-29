@@ -21,7 +21,7 @@ const AllCampaign = () => {
                         </thead>
                         <tbody>
                             {allCamapaign.map((campaign, index) => (
-                                <tr key={campaign.id}>
+                                <tr key={campaign._id}>
                                     <th>{index + 1}</th>
                                     <td>{campaign.title}</td>
                                     <td>{campaign.type}</td>
@@ -33,7 +33,8 @@ const AllCampaign = () => {
                                             className="btn btn-primary btn-sm"
                                         >
                                             See More
-                                        </button></Link>
+                                        </button>
+                                        </Link>
                                     </td>
                                 </tr>
                             ))}
