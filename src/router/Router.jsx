@@ -7,6 +7,7 @@ import NewCampine from "../NewCamping/NewCampine";
 import PrivateRoute from "./PrivateRoute";
 import AllCampaign from "../AllCampaign/AllCampaign";
 import CampaignDetails from "../Campaign-Details/CampaignDetails";
+import Mycampaign from "../MyCampaign/Mycampaign";
 
 const Router = createBrowserRouter([
     {
@@ -30,6 +31,11 @@ const Router = createBrowserRouter([
                 path: '/campaign/:id',
                 element:  <PrivateRoute><CampaignDetails></CampaignDetails></PrivateRoute>,
                 loader:({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+            },
+            {
+                path: '/myCampaign',
+                element:  <PrivateRoute><Mycampaign></Mycampaign></PrivateRoute>,
+                loader:() => fetch(`http://localhost:5000/campaign`)
             },
             {
                 path: 'login',
