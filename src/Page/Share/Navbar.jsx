@@ -13,7 +13,7 @@ console.log(user);
         <li><NavLink to='all-campaign'>All Campaign</NavLink></li>
         <li><NavLink to='addCampaign'>Add New Campaign</NavLink></li>
         <li><NavLink to='myCampaign'>My  Campaign</NavLink></li>
-        <li><NavLink to='dashboard'>My Donations</NavLink></li>
+        <li><NavLink to='myDonations'>My Donations</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100">
