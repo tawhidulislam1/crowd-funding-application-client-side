@@ -33,7 +33,7 @@ const UpdateCampaign = () => {
         };
 
         console.log(UpdateCampaign);
-        fetch(`http://localhost:5000/campaign/${_id}`, {
+        fetch(`https://serve-side-alpha.vercel.app/campaign/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

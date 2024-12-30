@@ -20,12 +20,12 @@ const Router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader:() => fetch(`http://localhost:5000/campaign`)
+                loader:() => fetch(`https://serve-side-alpha.vercel.app/campaign`)
             },
             {
                 path: 'all-campaign',
                 element: <AllCampaign></AllCampaign>,
-                loader:() => fetch(`http://localhost:5000/campaign`)
+                loader:() => fetch(`https://serve-side-alpha.vercel.app/campaign`)
             },
             {
                 path: 'addCampaign',
@@ -34,22 +34,22 @@ const Router = createBrowserRouter([
             {
                 path: '/campaign/:id',
                 element:  <PrivateRoute><CampaignDetails></CampaignDetails></PrivateRoute>,
-                loader:({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+                loader:({params}) => fetch(`https://serve-side-alpha.vercel.app/campaign/${params.id}`)
             },
             {
                 path: '/myCampaign',
                 element:  <PrivateRoute><Mycampaign></Mycampaign></PrivateRoute>,
-                loader:() => fetch(`http://localhost:5000/campaign`)
+                loader:() => fetch(`https://serve-side-alpha.vercel.app/campaign`)
             },
             {
                 path: '/updateCampaign/:id',
                 element:  <PrivateRoute><UpdateCampaign></UpdateCampaign></PrivateRoute>,
-                loader:({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+                loader:({params}) => fetch(`https://serve-side-alpha.vercel.app/campaign/${params.id}`)
             },
             {
                 path: '/myDonations',
                 element:  <PrivateRoute><MyDonations></MyDonations></PrivateRoute>,
-                loader:() => fetch(`http://localhost:5000/newDonated`)
+                loader:() => fetch(`https://serve-side-alpha.vercel.app/newDonated`)
             },
             {
                 path: 'login',

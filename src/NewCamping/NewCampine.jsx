@@ -30,7 +30,7 @@ const NewCampine = () => {
         };
 
         console.log(NewCampaign);
-        fetch('http://localhost:5000/addCampaign' , {
+        fetch('https://serve-side-alpha.vercel.app/addCampaign' , {
             method: "POST",
             headers:{
                 "content-type" : "application/json"

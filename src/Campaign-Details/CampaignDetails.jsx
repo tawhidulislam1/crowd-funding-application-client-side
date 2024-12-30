@@ -23,7 +23,7 @@ const CampaignDetails = () => {
             return
         }
 
-        fetch('http://localhost:5000/newDonated', {
+        fetch('https://serve-side-alpha.vercel.app/newDonated', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

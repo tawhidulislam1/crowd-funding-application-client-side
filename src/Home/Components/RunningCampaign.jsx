@@ -6,14 +6,17 @@ import { useNavigate } from "react-router-dom";
 const RunningCampaign = ({ Campaign }) => {
     const currentDate = new Date();
     const runningCampaigns = Campaign.filter((campaign) => new Date(campaign.deadline) > currentDate);
-    console.log(runningCampaigns);
+
+    const latestCampaigns = runningCampaigns
+        .sort((a, b) => new Date(b.deadline) - new Date(a.deadline))
+        .slice(0, 6);
     const navigate = useNavigate();
 
     return (
         <div className="py-10 px-4 bg-gray-900">
             <h1 className="text-3xl font-bold text-center mb-6">Running Campaigns</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {runningCampaigns.map((campaign) => (
+                {latestCampaigns.map((campaign) => (
                     <div key={campaign._id} className="bg-gray-700 shadow-md rounded-lg p-4">
                         <img
                             src={campaign.image}
