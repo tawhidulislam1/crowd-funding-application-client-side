@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const CampaignDetails = () => {
@@ -12,27 +13,36 @@ const CampaignDetails = () => {
         minDonation,
         deadline,
     } = campains;
-    const handleDonation = ()=>{
-        fetch('http://localhost:5000/newDonated' , {
-                    method: "POST",
-                    headers:{
-                        "content-type" : "application/json"
-                    },
-                    body: JSON.stringify(campains)
-                })
-                .then(res =>res.json())
-                .then(data => {
-                    if(data.insertedId){
-                        Swal.fire({
-                            title: "Success!",
-                            text: "Donated Successfully!",
-                            icon: "success"
-                          });
-                    }
-                    console.log(data);
-                })
+
+    const handleDonation = () => {
+        const currentDate = new Date();
+        const isRunningCampaign = new Date(deadline) >= currentDate;
+        if (!isRunningCampaign) {
+            console.log("date line over");
+            toast.error("Your Campaign Deadline Is Over")
+            return
+        }
+
+        fetch('http://localhost:5000/newDonated', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(campains)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Donated Successfully!",
+                        icon: "success"
+                    });
+                }
+                console.log(data);
+            })
     }
-    console.log(campains);
+    // console.log(campains);
     return (
         <div className="flex items-center justify-center min-h-screen">
             <div className="card w-full max-w-4xl text-white bg-slate-600 shadow-lg rounded-lg p-8">
@@ -62,7 +72,7 @@ const CampaignDetails = () => {
                         </p>
 
                         {/* Donate Button */}
-                        <button onClick={handleDonation}  className="btn btn-primary mt-6 w-full md:w-auto px-8">
+                        <button onClick={handleDonation} className="btn btn-primary mt-6 w-full md:w-auto px-8">
                             Donate
                         </button>
                     </div>

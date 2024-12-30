@@ -1,20 +1,20 @@
-
 import { Link, NavLink } from "react-router-dom";
-import  { AuthContext } from "../../Provider/AuthProvider";
+import { AuthContext } from "../../Provider/AuthProvider";
 import { useContext } from "react";
-
+import 'react-tooltip/dist/react-tooltip.css';  // Import the tooltip styles
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext)
-console.log(user);
-    // console.log(user);
-    const links = <>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='all-campaign'>All Campaign</NavLink></li>
-        <li><NavLink to='addCampaign'>Add New Campaign</NavLink></li>
-        <li><NavLink to='myCampaign'>My  Campaign</NavLink></li>
-        <li><NavLink to='myDonations'>My Donations</NavLink></li>
-    </>
+    const { user, logOut } = useContext(AuthContext);
+    const links = (
+        <>
+            <li><NavLink to='/'>Home</NavLink></li>
+            <li><NavLink to='all-campaign'>All Campaign</NavLink></li>
+            <li><NavLink to='addCampaign'>Add New Campaign</NavLink></li>
+            <li><NavLink to='myCampaign'>My Campaign</NavLink></li>
+            <li><NavLink to='myDonations'>My Donations</NavLink></li>
+        </>
+    );
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -47,14 +47,22 @@ console.log(user);
                 </ul>
             </div>
             <div className="navbar-end">
-                {
-                    user && user?.email ? <>
+                {user && user?.email ? (
+                    <>
                         <button onClick={logOut} className="btn">Logout</button>
-                       <img src={user?.photoURL} title={user?.displayName} alt="" className="rounded-full w-14 ml-2" />
-
-
-                    </> : <NavLink to='/login' className="btn">Login</NavLink>
-                }
+                        <div className="relative">
+                            <img
+                                src={user?.photoURL}
+                                title={user?.displayName} 
+                                alt="User Avatar"
+                                className="rounded-full w-14 ml-2"
+                            />
+                           
+                        </div>
+                    </>
+                ) : (
+                    <NavLink to='/login' className="btn">Login</NavLink>
+                )}
             </div>
         </div>
     );
